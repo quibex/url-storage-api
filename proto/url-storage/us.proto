@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package url_storage;
+
+option go_package = "quibex.ust.v1;ssov1";
+
+service UrlStorage {
+  rpc GetUrl(GetUrlRequest) returns (GetUrlResponse) {}
+  rpc SetUrl(SetUrlRequest) returns (SetUrlResponse) {}
+}
+
+message GetUrlRequest {
+  string alias = 1;
+}
+
+message GetUrlResponse {
+  string url = 1;
+}
+
+message SetUrlRequest {
+  string alias = 1;
+  string url = 2;
+}
+
+message SetUrlResponse {
+  int64 id = 1;
+}
